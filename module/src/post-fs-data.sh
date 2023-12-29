@@ -33,17 +33,17 @@ create_sys_perm() {
 
 create_sys_perm $MAGIC_PATH
 
-if [ -f $MODDIR/lib64/libzygisk.so ];then
+if [ -f $MODDIR/lib64/libxxxxd.so ];then
   create_sys_perm $MAGIC_PATH/lib64
-  cp $MODDIR/lib64/libzygisk.so $MAGIC_PATH/lib64/libzygisk.so
-  chcon u:object_r:system_file:s0 $MAGIC_PATH/lib64/libzygisk.so
+  cp $MODDIR/lib64/libxxxxd.so $MAGIC_PATH/lib64/libxxxxd.so
+  chcon u:object_r:system_file:s0 $MAGIC_PATH/lib64/libxxxxd.so
 fi
 
-if [ -f $MODDIR/lib/libzygisk.so ];then
+if [ -f $MODDIR/lib/libxxxxd.so ];then
   create_sys_perm $MAGIC_PATH/lib
-  cp $MODDIR/lib/libzygisk.so $MAGIC_PATH/lib/libzygisk.so
-  chcon u:object_r:system_file:s0 $MAGIC_PATH/lib/libzygisk.so
+  cp $MODDIR/lib/libxxxxd.so $MAGIC_PATH/lib/libxxxxd.so
+  chcon u:object_r:system_file:s0 $MAGIC_PATH/lib/libxxxxd.so
 fi
 
 [ "$DEBUG" = true ] && export RUST_BACKTRACE=1
-unshare -m sh -c "./bin/zygisk-ptrace64 monitor &"
+unshare -m sh -c "./bin/xxxxd-ptrace64 monitor &"
