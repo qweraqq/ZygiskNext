@@ -115,9 +115,9 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
     extract "$ZIPFILE" 'bin/x86/xxxxd' "$MODPATH/bin" true
     mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd32"
     extract "$ZIPFILE" 'lib/x86/libxxxxd.so' "$MODPATH/lib" true
-    ln -sf "xxxxd32" "$MODPATH/bin/zygisk-cp32"
-    extract "$ZIPFILE" 'lib/x86/libzygisk_ptrace.so' "$MODPATH/bin" true
-    mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxxd-ptrace32"
+    ln -sf "xxxxd32" "$MODPATH/bin/xxxxd-cp32"
+    extract "$ZIPFILE" 'lib/x86/libxxxx_ptrace.so' "$MODPATH/bin" true
+    mv "$MODPATH/bin/libxxxx_ptrace.so" "$MODPATH/bin/xxxxd-ptrace32"
   fi
 
   ui_print "- Extracting x64 libraries"
@@ -125,8 +125,8 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
   mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd64"
   extract "$ZIPFILE" 'lib/x86_64/libxxxxd.so' "$MODPATH/lib64" true
   ln -sf "xxxxd64" "$MODPATH/bin/xxxxd-cp64"
-  extract "$ZIPFILE" 'lib/x86_64/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxxd-ptrace64"
+  extract "$ZIPFILE" 'lib/x86_64/libxxxx_ptrace.so' "$MODPATH/bin" true
+  mv "$MODPATH/bin/libxxxx_ptrace.so" "$MODPATH/bin/xxxxd-ptrace64"
 else
   if [ "$HAS32BIT" = true ]; then
     ui_print "- Extracting arm libraries"
@@ -134,8 +134,8 @@ else
     mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd32"
     extract "$ZIPFILE" 'lib/armeabi-v7a/libxxxxd.so' "$MODPATH/lib" true
     ln -sf "xxxxd32" "$MODPATH/bin/xxxxd-cp32"
-    extract "$ZIPFILE" 'lib/armeabi-v7a/libzygisk_ptrace.so' "$MODPATH/bin" true
-    mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxxd-ptrace32"
+    extract "$ZIPFILE" 'lib/armeabi-v7a/libxxxx_ptrace.so' "$MODPATH/bin" true
+    mv "$MODPATH/bin/libxxxx_ptrace.so" "$MODPATH/bin/xxxxd-ptrace32"
   fi
 
   ui_print "- Extracting arm64 libraries"
@@ -143,8 +143,8 @@ else
   mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd64"
   extract "$ZIPFILE" 'lib/arm64-v8a/libxxxxd.so' "$MODPATH/lib64" true
   ln -sf "xxxxd64" "$MODPATH/bin/xxxxd-cp64"
-  extract "$ZIPFILE" 'lib/arm64-v8a/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxxd-ptrace64"
+  extract "$ZIPFILE" 'lib/arm64-v8a/libxxxx_ptrace.so' "$MODPATH/bin" true
+  mv "$MODPATH/bin/libxxxx_ptrace.so" "$MODPATH/bin/xxxxd-ptrace64"
 fi
 
 ui_print "- Generating magic"
