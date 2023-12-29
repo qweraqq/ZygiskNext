@@ -34,7 +34,7 @@ cargo {
 
 afterEvaluate {
     task<Task>("buildAndStrip") {
-        dependsOn(":xxxxd:cargoBuild")
+        dependsOn(":zygiskd:cargoBuild")
         val isDebug = gradle.startParameter.taskNames.any { it.toLowerCase().contains("debug") }
         doLast {
             val dir = File(buildDir, "rustJniLibs/android")

@@ -65,7 +65,7 @@ androidComponents.onVariants { variant ->
         }
         into("bin") {
             from(project(":zygiskd").buildDir.path + "/rustJniLibs/android")
-            include("**/zygiskd")
+            include("**/xxxxd")
         }
         into("lib") {
             from("${project(":loader").buildDir}/intermediates/stripped_native_libs/$variantLowered/out/lib")
