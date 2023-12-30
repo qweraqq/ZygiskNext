@@ -8,7 +8,7 @@ fi
 cd "$MODDIR"
 
 MAGIC=$(cat ./magic)
-MAGIC_PATH=/dev/zygisk_$MAGIC
+MAGIC_PATH=/dev/xxxx_$MAGIC
 export MAGIC
 export MAGIC_PATH
 
@@ -46,4 +46,4 @@ if [ -f $MODDIR/lib/libzygisk.so ];then
 fi
 
 [ "$DEBUG" = true ] && export RUST_BACKTRACE=1
-unshare -m sh -c "./bin/zygisk-ptrace64 monitor &"
+unshare -m sh -c "./bin/xxxx-ptrace64 monitor &"

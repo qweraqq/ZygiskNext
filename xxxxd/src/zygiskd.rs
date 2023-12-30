@@ -43,7 +43,7 @@ pub fn main() -> Result<()> {
     {
         let mut msg = Vec::<u8>::new();
         let info = match root_impl::get_impl() {
-            root_impl::RootImpl::KernelSU | root_impl::RootImpl::Magisk => {
+            root_impl::RootImpl::KernelSU => {
                 msg.extend_from_slice(&constants::DAEMON_SET_INFO.to_le_bytes());
                 let module_names: Vec<_> = modules.iter()
                     .map(|m| m.name.as_str()).collect();
@@ -237,7 +237,6 @@ fn handle_daemon_action(action: DaemonSocketAction, mut stream: UnixStream, cont
             }
             match root_impl::get_impl() {
                 root_impl::RootImpl::KernelSU => flags |= ProcessFlags::PROCESS_ROOT_IS_KSU,
-                root_impl::RootImpl::Magisk => flags |= ProcessFlags::PROCESS_ROOT_IS_MAGISK,
                 _ => panic!("wrong root impl: {:?}", root_impl::get_impl()),
             }
             log::trace!("Uid {} granted root: {}", uid, flags.contains(ProcessFlags::PROCESS_GRANTED_ROOT));
