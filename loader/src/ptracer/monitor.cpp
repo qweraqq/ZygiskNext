@@ -580,10 +580,14 @@ static bool prepare_environment() {
         PLOGE("chdir %s", wd);
         return false;
     }
+
+    #ifndef NDEBUG
     if (mount(prop_path.c_str(), "/data/adb/modules/zygisksu/module.prop", nullptr, MS_BIND, nullptr) == -1) {
         PLOGE("failed to mount prop");
         return false;
     }
+    #endif
+
     if (!switch_mnt_ns(0, &old_ns)) return false;
     if (chdir(wd) == -1) {
         PLOGE("chdir %s", wd);
