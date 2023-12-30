@@ -20,5 +20,5 @@ rootProject.name = "ZygiskNext"
 include(
     ":loader",
     ":module",
-    ":zygiskd",
+    ":xxxxd",
 )
