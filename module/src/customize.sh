@@ -115,6 +115,7 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
     extract "$ZIPFILE" 'bin/x86/xxxxd' "$MODPATH/bin" true
     mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd32"
     extract "$ZIPFILE" 'lib/x86/libzygisk.so' "$MODPATH/lib" true
+    mv "$MODPATH/lib/libzygisk.so" "$MODPATH/lib/libxxxx.so"
     ln -sf "xxxxd32" "$MODPATH/bin/xxxx-cp32"
     extract "$ZIPFILE" 'lib/x86/libzygisk_ptrace.so' "$MODPATH/bin" true
     mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxx-ptrace32"
@@ -124,6 +125,7 @@ if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
   extract "$ZIPFILE" 'bin/x86_64/xxxxd' "$MODPATH/bin" true
   mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd64"
   extract "$ZIPFILE" 'lib/x86_64/libzygisk.so' "$MODPATH/lib64" true
+  mv "$MODPATH/lib64/libzygisk.so" "$MODPATH/lib64/libxxxx.so"
   ln -sf "xxxxd64" "$MODPATH/bin/xxxx-cp64"
   extract "$ZIPFILE" 'lib/x86_64/libzygisk_ptrace.so' "$MODPATH/bin" true
   mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxx-ptrace64"
@@ -133,6 +135,7 @@ else
     extract "$ZIPFILE" 'bin/armeabi-v7a/xxxxd' "$MODPATH/bin" true
     mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd32"
     extract "$ZIPFILE" 'lib/armeabi-v7a/libzygisk.so' "$MODPATH/lib" true
+    mv "$MODPATH/lib/libzygisk.so" "$MODPATH/lib/libxxxx.so"
     ln -sf "xxxxd32" "$MODPATH/bin/xxxx-cp32"
     extract "$ZIPFILE" 'lib/armeabi-v7a/libzygisk_ptrace.so' "$MODPATH/bin" true
     mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxx-ptrace32"
@@ -142,6 +145,7 @@ else
   extract "$ZIPFILE" 'bin/arm64-v8a/xxxxd' "$MODPATH/bin" true
   mv "$MODPATH/bin/xxxxd" "$MODPATH/bin/xxxxd64"
   extract "$ZIPFILE" 'lib/arm64-v8a/libzygisk.so' "$MODPATH/lib64" true
+  mv "$MODPATH/lib64/libzygisk.so" "$MODPATH/lib64/libxxxx.so"
   ln -sf "xxxxd64" "$MODPATH/bin/xxxx-cp64"
   extract "$ZIPFILE" 'lib/arm64-v8a/libzygisk_ptrace.so' "$MODPATH/bin" true
   mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/xxxx-ptrace64"
