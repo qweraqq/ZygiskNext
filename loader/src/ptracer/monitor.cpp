@@ -582,7 +582,7 @@ static bool prepare_environment() {
     }
 
     #ifndef NDEBUG
-    if (mount(prop_path.c_str(), "/data/adb/modules/xxxxxx/module.prop", nullptr, MS_BIND, nullptr) == -1) {
+    if (mount(prop_path.c_str(), "/data/adb/modules/zygisksu/module.prop", nullptr, MS_BIND, nullptr) == -1) {
         PLOGE("failed to mount prop");
         return false;
     }
