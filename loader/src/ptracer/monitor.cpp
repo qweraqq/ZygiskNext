@@ -256,9 +256,12 @@ struct SocketHandler : public EventHandler {
                     break;
                 case SYSTEM_SERVER_STARTED:
                     LOGD("system server started, mounting prop");
+                    #ifndef NDEBUG
                     if (mount(prop_path.c_str(), "/data/adb/modules/zygisksu/module.prop", nullptr, MS_BIND, nullptr) == -1) {
                         PLOGE("failed to mount prop");
+                        return false;
                     }
+                    #endif
                     break;
             }
         }
